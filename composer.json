@@ -1,0 +1,24 @@
+{
+    "name": "cline/message-bus",
+    "autoload": {
+        "psr-4": {
+            "Cline\\MessageBus\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "brian@cline.sh"
+        }
+    ],
+    "require-dev": {
+        "cline/php-cs-fixer": "^1.0"
+    },
+    "require": {
+        "illuminate/support": "^12.28",
+        "illuminate/contracts": "^12.28",
+        "illuminate/bus": "^12.28",
+        "psr/log": "^3.0",
+        "illuminate/container": "^12.28"
+    }
+}
