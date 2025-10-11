@@ -1,0 +1,72 @@
+{
+    "name": "cline/message-bus",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "brian@cline.sh"
+        }
+    ],
+    "require": {
+        "php": "^8.4.0",
+        "illuminate/bus": "^12.28",
+        "illuminate/container": "^12.28",
+        "illuminate/contracts": "^12.28",
+        "illuminate/support": "^12.28",
+        "psr/log": "^3.0.2"
+    },
+    "require-dev": {
+        "cline/php-cs-fixer": "^1.0.4",
+        "driftingly/rector-laravel": "^2.0.7",
+        "ergebnis/composer-normalize": "^2.49@dev",
+        "laravel/pint": "^1.25.1",
+        "orchestra/testbench": "^10.6",
+        "pestphp/pest": "^3.8.4",
+        "pestphp/pest-plugin-laravel": "^3.2",
+        "pestphp/pest-plugin-type-coverage": "^3.6.1",
+        "phpstan/phpstan": "^2.1.31",
+        "rector/rector": "^2.2.2",
+        "symfony/var-dumper": "^7.3.4"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Cline\\MessageBus\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Monolith\\Legacy\\Application\\CommandHandler\\": "tests/Fixtures/Discovery/Legacy/Application/CommandHandler/",
+            "Monolith\\Legacy\\Application\\QueryHandler\\": "tests/Fixtures/Discovery/Legacy/Application/QueryHandler/",
+            "Monolith\\Modern\\Application\\Command\\Handlers\\": "tests/Fixtures/Discovery/New/Application/Command/Handlers/",
+            "Monolith\\Modern\\Application\\Query\\Handlers\\": "tests/Fixtures/Discovery/New/Application/Query/Handlers/",
+            "Monolith\\Infrastructure\\Handlers\\": "tests/Fixtures/Discovery/Invalid/",
+            "App\\Application\\Command\\Handlers\\": "tests/Fixtures/Discovery/Invalid/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "lint": "vendor/bin/php-cs-fixer fix",
+        "refactor": "rector",
+        "test": [
+            "@test:lint",
+            "@test:type-coverage",
+            "@test:unit",
+            "@test:types",
+            "@test:refactor"
+        ],
+        "test:lint": "vendor/bin/php-cs-fixer check --diff",
+        "test:refactor": "rector --dry-run",
+        "test:type-coverage": "pest --parallel --exactly=100 --type-coverage",
+        "test:types": "phpstan",
+        "test:unit": "pest --parallel --exactly=100 --coverage"
+    }
+}
