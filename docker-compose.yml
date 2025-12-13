@@ -1,0 +1,18 @@
+# To use:
+# Run "docker-compose build" to rebuild the app container.
+# Run "docker-compose run -u $(id -u ${USER}):$(id -g ${USER}) --rm php85 composer install" to install dependencies.
+# Run "docker-compose run  -u $(id -u ${USER}):$(id -g ${USER})--rm php85 vendor/bin/pest" to run the test script on 8.5.
+# Run "docker-compose down -v" to fully wipe everything and start over.
+# Run "docker-compose run -u $(id -u ${USER}):$(id -g ${USER}) --rm php85 bash" to log into the container to run tests selectively.
+services:
+    php85:
+        build: ./docker/php/85
+        volumes:
+            - ~/.composer:/.composer
+            - .:/usr/src/myapp
+            - ./docker/php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+    profile:
+        build: ./docker/php/85
+        volumes:
+            - .:/usr/src/myapp
+            - ./docker/php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini

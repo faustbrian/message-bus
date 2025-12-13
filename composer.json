@@ -1,0 +1,69 @@
+{
+  "name": "cline/message-bus",
+  "description": "",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Brian Faust",
+      "email": "brian@cline.sh"
+    }
+  ],
+  "require": {
+    "php": "^8.5.0",
+    "illuminate/bus": "^12.28",
+    "illuminate/container": "^12.28",
+    "illuminate/contracts": "^12.28",
+    "illuminate/support": "^12.28",
+    "psr/log": "^3.0.2"
+  },
+  "require-dev": {
+    "cline/coding-standard": "^1.5.7",
+    "ergebnis/composer-normalize": "^2.48.2",
+    "orchestra/testbench": "^10.8",
+    "pestphp/pest": "^4.1.6",
+    "pestphp/pest-plugin-laravel": "^4.0",
+    "pestphp/pest-plugin-type-coverage": "^4.0.3",
+    "symfony/var-dumper": "^7.4.0"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Cline\\MessageBus\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Application\\Command\\Handlers\\": "tests/Fixtures/Discovery/Invalid/",
+      "Monolith\\Infrastructure\\Handlers\\": "tests/Fixtures/Discovery/Invalid/",
+      "Monolith\\Legacy\\Application\\CommandHandler\\": "tests/Fixtures/Discovery/Legacy/Application/CommandHandler/",
+      "Monolith\\Legacy\\Application\\QueryHandler\\": "tests/Fixtures/Discovery/Legacy/Application/QueryHandler/",
+      "Monolith\\Modern\\Application\\Command\\Handlers\\": "tests/Fixtures/Discovery/New/Application/Command/Handlers/",
+      "Monolith\\Modern\\Application\\Query\\Handlers\\": "tests/Fixtures/Discovery/New/Application/Query/Handlers/",
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ergebnis/composer-normalize": true,
+      "pestphp/pest-plugin": true
+    }
+  },
+  "scripts": {
+    "lint": "ecs check --fix",
+    "refactor": "rector",
+    "test": [
+      "@test:lint",
+      "@test:type-coverage",
+      "@test:unit",
+      "@test:types",
+      "@test:refactor"
+    ],
+    "test:lint": "ecs check",
+    "test:refactor": "rector --dry-run",
+    "test:type-coverage": "pest --parallel --min=90 --type-coverage",
+    "test:types": "phpstan",
+    "test:unit": "pest --parallel --min=90 --coverage"
+  }
+}
