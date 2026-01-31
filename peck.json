@@ -1,0 +1,40 @@
+{
+    "preset": "laravel",
+    "ignore": {
+        "words": [
+            "php",
+            "testbench",
+            "fn",
+            "cond",
+            "eithers",
+            "fallbacks",
+            "strlen",
+            "coords",
+            "monadic",
+            "hardcoded",
+            "composable",
+            "Monad",
+            "curried",
+            "ok",
+            "str",
+            "noop",
+            "filesystem",
+            "andThen",
+            "api",
+            "onFailure",
+            "parsers",
+            "params",
+            "rethrow",
+            "num",
+            "bimap",
+            "func",
+            "chainable",
+            "foreach",
+            "strtoupper",
+            "strpos",
+            "acc",
+            "instanceof"
+        ],
+        "paths": []
+    }
+}
