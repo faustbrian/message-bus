@@ -17,7 +17,7 @@
         "psr/log": "^3.0.2"
     },
     "require-dev": {
-        "cline/coding-standard": "^2.0",
+        "cline/coding-standard": "^2.0.1",
         "ergebnis/composer-normalize": "^2.50.0",
         "orchestra/testbench": "^8.0 || ^9.0 || ^10.9",
         "pestphp/pest": "^4.4.1",
