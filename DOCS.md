@@ -1,11 +1,11 @@
 ## Table of Contents
 
-1. [Overview](#doc-docs-readme) (`docs/README.md`)
-2. [Api Reference](#doc-docs-api-reference) (`docs/api-reference.md`)
-3. [Command Bus](#doc-docs-command-bus) (`docs/command-bus.md`)
-4. [Handler Discovery](#doc-docs-handler-discovery) (`docs/handler-discovery.md`)
-5. [Middleware](#doc-docs-middleware) (`docs/middleware.md`)
-6. [Query Bus](#doc-docs-query-bus) (`docs/query-bus.md`)
+1. [Overview](#doc-docs-readme)
+2. [Api Reference](#doc-docs-api-reference)
+3. [Command Bus](#doc-docs-command-bus)
+4. [Handler Discovery](#doc-docs-handler-discovery)
+5. [Middleware](#doc-docs-middleware)
+6. [Query Bus](#doc-docs-query-bus)
 <a id="doc-docs-readme"></a>
 
 A lightweight, extensible message bus implementation for Laravel supporting both Command and Query patterns with middleware pipeline architecture.
