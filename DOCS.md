@@ -1,11 +1,13 @@
 ## Table of Contents
 
-1. Overview (`docs/README.md`)
-2. Api Reference (`docs/api-reference.md`)
-3. Command Bus (`docs/command-bus.md`)
-4. Handler Discovery (`docs/handler-discovery.md`)
-5. Middleware (`docs/middleware.md`)
-6. Query Bus (`docs/query-bus.md`)
+1. [Overview](#doc-docs-readme) (`docs/README.md`)
+2. [Api Reference](#doc-docs-api-reference) (`docs/api-reference.md`)
+3. [Command Bus](#doc-docs-command-bus) (`docs/command-bus.md`)
+4. [Handler Discovery](#doc-docs-handler-discovery) (`docs/handler-discovery.md`)
+5. [Middleware](#doc-docs-middleware) (`docs/middleware.md`)
+6. [Query Bus](#doc-docs-query-bus) (`docs/query-bus.md`)
+<a id="doc-docs-readme"></a>
+
 A lightweight, extensible message bus implementation for Laravel supporting both Command and Query patterns with middleware pipeline architecture.
 
 ## Requirements
@@ -115,6 +117,8 @@ The discovery system scans these directory patterns:
 - **Modern**: `Application/Command/Handlers/` and `Application/Query/Handlers/`
 
 All handler classes must be within the `Monolith\` namespace.
+
+<a id="doc-docs-api-reference"></a>
 
 Complete API documentation for all classes and interfaces in the message-bus package.
 
@@ -338,6 +342,8 @@ final readonly class LogExecutionTimeMiddleware implements BusMiddlewareInterfac
 
 Logs at debug level with message class and elapsed milliseconds.
 
+<a id="doc-docs-command-bus"></a>
+
 The Command Bus dispatches commands for write operations through a middleware pipeline to registered handlers.
 
 ## Creating Commands
@@ -508,6 +514,8 @@ final readonly class UserHandler
 ```
 
 The discovery system detects both class-level and method-level attributes.
+
+<a id="doc-docs-handler-discovery"></a>
 
 Automatic handler discovery uses PHP attributes to map commands and queries to their handlers without manual registration.
 
@@ -695,6 +703,8 @@ The discovery system automatically skips:
 - Interfaces
 - Classes outside `/Application/` directories
 - Classes outside the `Monolith\` namespace
+
+<a id="doc-docs-middleware"></a>
 
 Middleware wraps command and query execution with cross-cutting concerns like logging, validation, and transactions.
 
@@ -912,6 +922,8 @@ Register middleware by class name (resolved via container):
 ```php
 CommandBus::middleware(LoggingMiddleware::class);
 ```
+
+<a id="doc-docs-query-bus"></a>
 
 The Query Bus executes queries for read operations through a middleware pipeline to registered handlers.
 
