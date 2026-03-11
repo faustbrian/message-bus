@@ -10,10 +10,7 @@
     ],
     "require": {
         "php": "^8.5.0",
-        "illuminate/bus": "^10.0 || ^11.0 || ^12.0 || ^13.0",
-        "illuminate/container": "^10.0 || ^11.0 || ^12.0 || ^13.0",
-        "illuminate/contracts": "^10.0 || ^11.0 || ^12.0 || ^13.0",
-        "illuminate/support": "^10.0 || ^11.0 || ^12.0 || ^13.0",
+        "laravel/framework": "^10.0 || ^11.0 || ^12.0 || ^13.0",
         "psr/log": "^3.0.2"
     },
     "require-dev": {
